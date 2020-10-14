@@ -1,0 +1,23 @@
+Basic
+
+class Solution(object):
+    def trailingZeroes(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        def fact(k):
+            if k == 0 or k == 1:
+                return 1
+            return k*fact(k-1)
+        
+        op = 0 
+        factorial = fact(n)
+        for i in str(factorial)[::-1]:
+            if i == "0":
+                 op +=1 
+            else:
+                break
+        return op
+        
+         
