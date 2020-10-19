@@ -1,3 +1,6 @@
+253 : Meeting Rooms , Heaps . The description is very helpful,  I read that :( 
+This problem uses lambda.(https://stackoverflow.com/questions/4174941/how-to-sort-a-list-of-lists-by-a-specific-index-of-the-inner-list/4174955)
+
 class Solution(object):
     def minMeetingRooms(self, intervals):
         """

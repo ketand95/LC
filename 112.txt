@@ -1,0 +1,45 @@
+112. PathSum , Trees
+
+Recursive : TC : O(N) , SC : O(N)
+
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution(object):
+    def hasPathSum(self, root, sum):
+        """
+        :type root: TreeNode
+        :type sum: int
+        :rtype: bool
+        """
+        if not root :
+            return False
+        sum -= root.val
+        if (root.left == None and root.right == None):
+            return sum == 0
+        return self.hasPathSum(root.left , sum ) or self.hasPathSum(root.right , sum  )
+
+Iterative : TC : O(N)  , SC : O(N)
+
+class Solution(object):
+    def hasPathSum(self, root, sum):
+        """
+        :type root: TreeNode
+        :type sum: int
+        :rtype: bool
+        """
+        if not root :
+            return False
+        stack = [(sum - root.val , root)]
+        while stack :
+            cur_sum , node = stack.pop()
+            if (cur_sum == 0 and  node.left == None and  node.right == None ):
+                return True
+            if node.left :
+                stack.append((cur_sum- node.left.val , node.left))
+            if node.right :
+                stack.append((cur_sum-node.right.val , node.right))
+        return False

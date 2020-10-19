@@ -1,0 +1,14 @@
+139 . DFS
+
+class Solution:
+    def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+        word_set = set(wordDict)
+        n = len(s)
+       
+        def dfs(k):
+            if k == n : return True
+            for i in range(k+1 , n+1):
+                if s[k:i] in word_set and dfs(i):
+                    return True
+            return False
+        return dfs(0)
